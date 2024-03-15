@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7; /* Cor de fundo suave */
+            background-image: linear-gradient(to bottom right, #f7f7f7, #ddd); /* Gradiente suave */
+            color: #333; /* Cor do texto principal */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #fff; /* Cor de fundo dos cards */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            transition: transform 0.3s ease-in-out;
+            margin: 20px;
+            flex-basis: calc(50% - 40px); /* Distribuição de 2 cards em cada linha com espaço entre eles */
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        .card:hover {
+            transform: translateY(5px);
+        }
+
+        .value-card {
+            background-color: #fff; /* Cor de fundo do card de valor */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            transition: transform 0.3s ease-in-out;
+            margin: 20px;
+            flex-basis: calc(100% - 40px); /* Largura total para o card abaixo */
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        .value-card:hover {
+            transform: translateY(5px);
+        }
+
+        .refresh-button {
+            background-color: #1A1A1A;
+            color: #fff; /* Cor do texto do botão */
+            border: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .refresh-button:hover {
+            background-color: #333; /* Cor de fundo do botão ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Sensor</h2>
+            <p>{{ ultimo_dado.sensor }}</p>
+        </div>
+        <div class="card">
+            <h2>Botão</h2>
+            <p>{{ ultimo_dado.botao }}</p>
+        </div>
+        <div class="card">
+            <h2>Ligar Robô</h2>
+            <p>{{ ultimo_dado.ligaRobo }}</p>
+        </div>
+        <div class="card">
+            <h2>Resetar Contador</h2>
+            <p>{{ ultimo_dado.resetContador }}</p>
+        </div>
+        <div class="value-card">
+            <h2>Valor de Contagem</h2>
+            <p>{{ ultimo_dado.valorContagem }}</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+        <button class="refresh-button" onclick="window.location.reload();">Atualizar</button>
+    </div>
+</body>
+</html>
